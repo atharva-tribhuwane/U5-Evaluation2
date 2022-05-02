@@ -6,8 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather-App</title>
     <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
         #navbar{
             /* border: 1px solid red; */
+            background-color: rgb(51, 51, 51);
+            display: flex;
+        }
+        #navbar>h1{
+            color: white;
+            margin-left: 5%;
+        }
+        #formm{
+            /* border: 1px solid yellow; */
+            width: 80%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         #formm>input{
             padding: 0.5%;
@@ -56,6 +73,7 @@
 <body>
     <div id="main">
         <div id="navbar">
+            <h1>Weather-App</h1>
             <form id="formm">
                 <input type="text" id="cityname" placeholder="City Name" required/>
                 <input type="submit" id="subsub" />
@@ -68,7 +86,7 @@
     </div>
 </body>
 <script>
-    
+
     document.querySelector("#formm").addEventListener("submit", function(){
         event.preventDefault();
         let cityname = document.getElementById("cityname").value;
@@ -99,24 +117,24 @@
         image.src = url;
 
         let name = document.createElement("div");
-        name.innerHTML = `<b>Name: </b>${result.name}`;
+        name.innerHTML = `<b>Name : </b>${result.name}`;
         let tempreature = document.createElement("div");
-        tempreature.innerHTML =`<b>Tempreature: </b>${result.main.temp}`;
+        tempreature.innerHTML =`<b>Tempreature : </b> ${result.main.temp}`;
 
         let pressure = document.createElement("div");
-        pressure.innerHTML = `<b>Pressure: </b>${result.main.pressure} mb`;
+        pressure.innerHTML = `<b>Pressure : </b> ${result.main.pressure} mb`;
 
         let humidity = document.createElement("div");
-        humidity.innerHTML =`<b>Humidity: </b> ${result.main.humidity} %`;
+        humidity.innerHTML =`<b>Humidity : </b> ${result.main.humidity} %`;
 
         let wind_speed = document.createElement("div");
-        wind_speed.innerHTML =`<b>Wind Speed: </b> ${result.wind.speed} km/h`;
+        wind_speed.innerHTML =`<b>Wind Speed : </b> ${result.wind.speed} km/h`;
 
         let sunrise = document.createElement("div");
-        sunrise.innerHTML =`<b>Sunrise: </b> ${result.sys.sunrise}`;
+        sunrise.innerHTML =`<b>Sunrise : </b> ${result.sys.sunrise}`;
 
         let sunset = document.createElement("div");
-        sunset.innerHTML = `<b>Sunset: </b> ${result.sys.sunset}`;
+        sunset.innerHTML = `<b>Sunset : </b> ${result.sys.sunset}`;
 
         let desc = document.createElement("div");
         desc.innerHTML =`<h3>${result.weather[0].description}</h3>`;
